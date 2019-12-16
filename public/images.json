@@ -1,0 +1,71 @@
+{
+    "Data": [
+        {
+            "id": "2",
+            "title": "Nintendo Switch Family",
+            "newsimage": "https://cdn02.nintendo-europe.com/media/images/11_square_images/others_4/nintendo_eshop_6/SQ_WeeklyDownloadNews_enGB_bannerTM_MD.jpg",
+            "thumbnail": "https://cdn02.nintendo-europe.com/media/images/10_share_images/others_3/festivegamingcalendar/H2x1_Nintendo_FestiveGamingCalendar_enGB_banner66LG.jpg",
+            "iconsvg": "nintendoSwitch.svg",
+            "textheader": "Sports Story, Axiom Verge 2 and more revealed in the latest Indie World showcase!",
+            "date": "11/12/19 Nintendo |  Switch",
+            "caption1": "Enter now to win Nintendo Switch prizes!",
+            "caption2": "Begin your journey in Galar!",
+            "caption3": "Check into the Last Resort!",
+            "caption4": "Kick off your fitness adventure!"
+        },
+        {
+            "id": "1",
+            "title": "Games",
+            "newsimage": "https://cdn02.nintendo-europe.com/media/images/11_square_images/news_10/2019_4/december_26/SQ_PlatformGames-Banner_enGB_bannerTM_MD.jpg",
+            "thumbnail": "https://cdn02.nintendo-europe.com/media/images/10_share_images/others_3/festivegamingcalendar/H2x1_Nintendo_FestiveGamingCalendar_enGB_banner66LG.jpg",
+            "iconsvg": "games.svg",
+            "textheader": "Be in with a chance of winning a Nintendo Switch Family Bundle worth £1,000 at the Nintendo Official UK Store!",
+            "date": "11/12/19 Nintendo |  Switch"
+        },
+        {
+            "id": "3",
+            "title": "Nintendo eShop",
+            "newsimage": "https://cdn02.nintendo-europe.com/media/images/11_square_images/others_4/SQ_IndieWorld_bannerTM_MD.jpg",
+            "thumbnail": "https://cdn02.nintendo-europe.com/media/images/10_share_images/others_3/festivegamingcalendar/H2x1_Nintendo_FestiveGamingCalendar_enGB_banner66LG.jpg",
+            "iconsvg": "eshop.svg",
+            "textheader": "Tell us your favourite handheld gaming moments for a chance to win a Nintendo Switch Lite",
+            "date": "11/12/19 Nintendo |  Switch"
+        },
+        {
+            "id": "4",
+            "title": "Nintendo 3DS Family",
+            "newsimage": "https://cdn02.nintendo-europe.com/media/downloads/country_support_4/uk_8/NUK_Store-_Festive_contest_SQ_bannerTM_MD.jpg",
+            "thumbnail": "https://cdn02.nintendo-europe.com/media/images/10_share_images/others_3/festivegamingcalendar/H2x1_Nintendo_FestiveGamingCalendar_enGB_banner66LG.jpg",
+            "iconsvg": "3Dfamily.svg",
+            "textheader": "Weekly download news",
+            "date": "11/12/19 Nintendo |  Switch"
+        },
+        {
+            "id": "5",
+            "title": "Store",
+            "newsimage": "https://cdn02.nintendo-europe.com/media/downloads/country_support_4/uk_8/SQ_SwitchLite_Combined~1_bannerTM_MD.jpg",
+            "thumbnail": "https://cdn02.nintendo-europe.com/media/images/10_share_images/others_3/festivegamingcalendar/H2x1_Nintendo_FestiveGamingCalendar_enGB_banner66LG.jpg",
+            "iconsvg": "store.svg",
+            "textheader": "Leffen takes first place at DreamHack Winter 2019, the 2nd event on the Super Smash Bros. Ultimate European Circuit!",
+            "date": "11/12/19 Nintendo |  Switch"
+        },
+        {
+            "id": "6",
+            "title": "News",
+            "newsimage": "https://cdn02.nintendo-europe.com/media/images/11_square_images/portals_4/super_smash_bros__ultimate_tournament_portal/SQ_SSBU_TournamentPortal_EuropeanCircuitLogo_bannerTM_MD.jpg",
+            "thumbnail": "https://cdn02.nintendo-europe.com/media/images/10_share_images/others_3/festivegamingcalendar/H2x1_Nintendo_FestiveGamingCalendar_enGB_banner66LG.jpg",
+            "iconsvg": "news.svg",
+            "textheader": "Nintendo Switch (Neon Blue/Neon Red) Mario Kart 8 Deluxe Bundle available now at the Nintendo Official UK Store",
+            "date": "11/12/19 Nintendo |  Switch"
+        },
+        {
+            "id": "7",
+            "title": "Support",
+            "newsimage": "https://cdn02.nintendo-europe.com/media/downloads/country_support_4/uk_8/2000x2000_Mario-Kart-8-Deluxe_Switch-HW-1.1_Social_V3-2_bannerTM_MD.jpg",
+            "thumbnail": "https://cdn02.nintendo-europe.com/media/images/10_share_images/others_3/festivegamingcalendar/H2x1_Nintendo_FestiveGamingCalendar_enGB_banner66LG.jpg",
+            "iconsvg": "support.svg",
+            "textheader": "Nintendo Switch (Neon Blue/Neon Red) Mario Kart 8 Deluxe Bundle available now at the Nintendo Official UK Store",
+            "date": "11/12/19 Nintendo |  Switch"
+        }
+    ]
+}
