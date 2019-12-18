@@ -3,9 +3,6 @@ import App from './App.vue';
 import 'blueprint-css';
 
 
-
-
-
 Vue.config.productionTip = false
 
 new Vue({

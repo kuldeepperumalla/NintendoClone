@@ -1,0 +1,117 @@
+{
+    "sideNav": [
+        {
+            "title": "Nintendo Switch Family",
+            "newsimage": "img/news1.jpg",
+            "iconsvg": "nintendoSwitch.svg",
+            "caption1": "Enter now to win Nintendo Switch prizes!"
+        },
+        {
+            "title": "Games",
+            "iconsvg": "games.svg",
+            "caption2": "Begin your journey in Galar!"
+        },
+        {
+            "title": "Nintendo eShop",
+            "iconsvg": "eshop.svg",
+            "caption3": "Check into the Last Resort!"
+        },
+        {
+            "title": "Nintendo 3DS Family",
+            "iconsvg": "3Dfamily.svg",
+            "caption4": "Kick off your fitness adventure!"
+        },
+        {
+            "title": "Store",
+            "iconsvg": "store.svg"
+        },
+        {
+            "title": "News",
+            "iconsvg": "news.svg"
+        },
+        {
+            "title": "Support",
+            "iconsvg": "support.svg"
+        }
+    ],
+    "news": [
+        {
+            "thumbnail": "img/news1.jpg",
+            "heading": "Sports Story, Axiom Verge 2 and more revealed in the latest Indie World showcase!",
+            "date": "11/12/19 Nintendo |  Switch",
+            "bottomline": "Put your platforming skills to the test!"
+        },
+        {
+            "thumbnail": "img/news2.jpg",
+            "heading": "Be in with a chance of winning a Nintendo Switch Family Bundle worth £1,000 at the Nintendo Official UK Store!",
+            "date": "11/12/19 Nintendo |  Switch",
+            "bottomline": "Put your platforming skills to the test!"
+        },
+        {
+            "thumbnail": "img/news3.jpg",
+            "heading": "Tell us your favourite handheld gaming moments for a chance to win a Nintendo Switch Lite",
+            "date": "11/12/19 Nintendo |  Switch",
+            "bottomline": "Put your platforming skills to the test!"
+        },
+        {
+            "thumbnail": "img/news4.jpg",
+            "heading": "Weekly download news",
+            "date": "11/12/19 Nintendo |  Switch",
+            "bottomline": "Put your platforming skills to the test!"
+        },
+        {
+            "thumbnail": "img/news5.jpg",
+            "heading": "Leffen takes first place at DreamHack Winter 2019, the 2nd event on the Super Smash Bros. Ultimate European Circuit!",
+            "date": "11/12/19 Nintendo |  Switch",
+            "bottomline": "Put your platforming skills to the test!"
+        },
+        {
+            "thumbnail": "img/news6.jpg",
+            "heading": "Nintendo Switch (Neon Blue/Neon Red) Mario Kart 8 Deluxe Bundle available now at the Nintendo Official UK Store",
+            "date": "11/12/19 Nintendo |  Switch",
+            "bottomline": "Put your platforming skills to the test!"
+        },
+        {
+            "thumbnail": "img/news7.jpg",
+            "heading": "Unforgettable journeys await you in this selection of Nintendo Switch JRPGs",
+            "date": "11/12/19 Nintendo |  Switch",
+            "bottomline": "Put your platforming skills to the test!"
+        }
+    ],
+    "squareimages": [
+        {
+            "thumbnails": "img/thumbnail1.jpg",
+            "caption": "Enter now to win Nintendo Switch prizes!"
+        },
+        {
+            "thumbnails": "img/thumbnail3.jpg"
+        },
+        {
+            "thumbnails": "img/thumbnail4.jpg"
+        },
+        {
+            "thumbnails": "img/thumbnail5.jpg",
+            "caption": "Begin your journey in Galar!"
+        },
+        {
+            "thumbnails": "img/thumbnail6.jpg",
+            "caption": "Check into the Last Resort!"
+        }
+    ],
+    "tallimages": [
+        {
+            "tallthumbnail": "img/thumbnail2.jpg"
+        }
+    ],
+    "wideimages": [
+        {
+            "widethumbnail": "img/thumbnail7.jpg",
+            "caption": "Kick off your fitness adventure!"
+        }
+    ],
+    "squarecaptions": [
+        {
+            "title": "Enter now to win Nintendo Switch prizes!"
+        }
+    ]
+}

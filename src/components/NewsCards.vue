@@ -8,15 +8,15 @@
           </div>
         </div>
         <ul>
-          <li :key="posts.id" v-for="posts in posts">
+          <li :key="news.id" v-for="news in news">
             <div bp="float-left 3@md offset-2@md" class="newsfield-section">
-              <div bp="float-left">
-                <img class="rightImage" :src="posts.newsimage" alt />
+              <div class="thumnail" bp="float-left">
+                <img class="rightImage" :src="news.thumbnail" alt />
               </div>
               <div bp="container float-left" class="text-box">
-                <h1 class="text">{{posts.textheader}}</h1>
-                <span class="date">{{posts.date}}</span>
-                <p>put your platforming skills to the test</p>
+                <h1 class="text">{{news.heading}}</h1>
+                <span class="date">{{news.date}}</span>
+                <p>Put your platforming skills to the test</p>
               </div>
             </div>
           </li>
@@ -31,11 +31,14 @@ import { Component, Vue, Prop } from "vue-property-decorator";
 
 @Component
 export default class NewsThumbnail extends Vue {
-  @Prop({ required: true }) posts!: null;
+  @Prop({ required: true }) news!: Object;
 }
 </script>
 
 <style scoped>
+* {
+  font-family: "proxima-nova", "Source Sans Pro", Helvetica, Arial, sans-serif;
+}
 .content-section-header {
   background: #fff;
   padding: 17px;
@@ -44,7 +47,9 @@ export default class NewsThumbnail extends Vue {
 
   width: 100%;
 }
-
+.thumbnail {
+  display: inline-block;
+}
 p.content-section-header__title {
   margin: 0;
   font-size: 22px;
@@ -66,16 +71,15 @@ p.content-section-header__title {
 .content-section-header {
   background: #fff;
   padding: 17px;
-  margin-bottom: 4px;
   font-family: "proxima-nova", "Source Sans Pro", Helvetica, Arial, sans-serif;
   width: 92%;
+  margin: 0px 15px;
 }
 .newsfield-section {
   background: #fff;
-  padding: 85px;
+
   margin-bottom: 4px;
   font-family: "proxima-nova", "Source Sans Pro", Helvetica, Arial, sans-serif;
-  padding: 0%;
 }
 
 .news-items {
@@ -94,6 +98,8 @@ li {
 .newsfield-section {
   transform: translate(-39.5px, -12px);
   width: 100%;
+  padding: 10px 0px;
+  margin: 2px 15px;
 }
 .rightImage {
   width: 130px;
@@ -101,14 +107,15 @@ li {
 }
 
 .text-box {
-  width: 69%;
+  width: 100%;
   height: 100%;
-  margin-top: 10px;
+  display: contents;
   text-align: left;
 }
 .text {
   font-size: 18px;
-  margin-top: -5px;
+  margin: 0px;
+
   font-family: unset;
   line-height: 25px;
   color: #333;
@@ -123,8 +130,17 @@ li {
 }
 p {
   font-family: "proxima-nova", "Source Sans Pro", Helvetica, Arial, sans-serif;
-  font-size: 15px;
-  color: black;
+  font-size: 13.1px;
+  color: #333333;
   text-align: left;
+  margin: 0;
+  font-weight: normal;
+  letter-spacing: 0.6px;
+  line-height: 1.4;
+}
+@media only screen and (max-width: 1150px) {
+  * {
+    display: none;
+  }
 }
 </style>

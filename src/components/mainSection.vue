@@ -1,91 +1,74 @@
 <template>
   <div id="container">
     <div id="layout" bp="flex">
+      <!-- left nav -->
       <div bp="fit 1--max">
-        <right-nav v-bind:posts="posts" />
+        <left-nav v-bind:sideNav="sideNav" />
       </div>
 
-      <div bp="fill 13--max">
-        <div id="content">
-          <div class="square box">
-            <img class="image1" src="img/thumbnail1.jpg" alt />
-            <div class="caption">
-              <p
-                :key="id"
-                v-for="(posts, id) in posts"
-                class="overlaptext-caption-linktext"
-                style
-              >{{posts.caption1}}</p>
-              <img class="svgicon" src="caption.svg" alt />
-            </div>
-          </div>
+      <div ref="scroll" bp="fill 13--max">
+        <div class="content">
+          <!-- square images -->
+          <div
+            :key="squareimages.id"
+            v-for="(squareimages, index) in squareimages"
+            class="square box"
+          >
+            <img class="image1" :src="squareimages.thumbnails" alt />
 
-          <div class="tall box">
-            <img class="image1" src="img/thumbnail2.jpg" alt />
-          </div>
-
-          <div class="square box">
-            <img class="image1" src="img/thumbnail3.jpg" alt />
-          </div>
-
-          <div class="square box">
-            <img class="image1" src="img/thumbnail4.jpg" alt />
-          </div>
-
-          <div class="square box">
-            <img class="image1" src="img/thumbnail5.jpg" alt />
-            <div class="captionNoBg">
-              <p class="overlaptext-caption-linktext">
-                Begin your journey in Galar!
-                <img class="svgicon" src="caption.svg" alt />
-              </p>
-            </div>
-          </div>
-
-          <div class="square box">
-            <img class="image1" src="img/thumbnail6.jpg" alt />
-            <div class="captionNoBg">
-              <p class="overlaptext-caption-linktext">
-                Check into the Last Resort!
-                <img class="svgicon" src="caption.svg" alt />
-              </p>
-            </div>
-          </div>
-
-          <div class="wide box">
-            <img class="image1" src="img/thumbnail7.jpg" alt />
-            <div class="caption">
+            <!-- captions with index-->
+            <div v-if="index === 0" class="caption">
               <p class="overlaptext-caption-linktext" style>
-                Kick off your fitness adventure!
+                {{squareimages.caption}}
+                <img class="svgicon" src="caption.svg" alt />
+              </p>
+            </div>
+
+            <div v-if="index === 3" class="captionNoBg">
+              <p class="overlaptext-caption-linktext" style>
+                {{squareimages.caption}}
+                <img class="svgicon" src="caption.svg" alt />
+              </p>
+            </div>
+
+            <div v-if="index === 4" class="captionNoBg">
+              <p class="overlaptext-caption-linktext" style>
+                {{squareimages.caption}}
+                <img class="svgicon" src="caption.svg" alt />
+              </p>
+            </div>
+          </div>
+
+          <!-- tall images -->
+          <div :key="tallimages.id" v-for="tallimages in tallimages" class="tall box">
+            <img class="image1" :src="tallimages.tallthumbnail" alt />
+          </div>
+
+          <!-- wide image -->
+          <div :key="wide.id" v-for="(wide, index) in wideimages" class="wide box">
+            <img class="image1" :src="wide.widethumbnail" alt />
+
+            <!-- captions with index -->
+            <div class="caption">
+              <p v-if="index === 0" class="overlaptext-caption-linktext" style>
+                {{wide.caption}}
                 <img class="svgiconWide" src="caption.svg" alt />
               </p>
             </div>
           </div>
 
-          <div class="square box">
-            <img class="image1" src="img/thumbnail8.jpg" alt />
-          </div>
-
-          <div class="square box">
-            <img class="image1" src="img/thumbnail9.jpg" alt />
-          </div>
-
-          <div class="square box">
-            <img class="image1" src="img/thumbnail12.jpg" alt />
-          </div>
-
-          <div class="square box">
-            <img class="image1" src="img/thumbnail10.jpg" alt />
-          </div>
-
-          <div class="wide box">
-            <img class="image1" src="img/thumbnail11.jpg" alt />
-          </div>
+          <!-- top button -->
+          <a href title="Go to Top">
+            <div @click="scroll" id="mainNavTop">
+              <img src="top.svg" alt="top" />
+            </div>
+          </a>
         </div>
       </div>
 
+      <!-- news cards -->
       <div bp="fit 6--max">
-        <news-cards v-bind:posts="posts" />
+        <news-cards v-bind:news="news" />
       </div>
     </div>
   </div>
@@ -93,9 +76,10 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import RightNav from "./RightNav.vue";
+import LeftNav from "./LeftNav.vue";
 import NewsCards from "./NewsCards.vue";
 import axios, { AxiosResponse } from "axios";
+
 interface Itypes {
   id: number;
   image: URL;
@@ -106,23 +90,42 @@ interface Itypes {
 }
 @Component({
   components: {
-    RightNav,
+    LeftNav,
     NewsCards
   }
 })
-export default class imageSection extends Vue {
-  posts: null | Itypes = null;
+export default class MainSection extends Vue {
+  sideNav: Object | Itypes = Object;
+  squareimages: Object = Object;
+  tallimages: Object = Object;
+  wideimages: Object = Object;
+  news: Object = Object;
+  squarecaptions: Object = Object;
+
+  $refs!: {
+    scroll: HTMLFormElement;
+  };
 
   async mounted() {
-    // console.log(this.posts);
     try {
-      const response: AxiosResponse = await axios.get("/images.json");
+      const response: AxiosResponse = await axios.get("/DataBase.json");
       console.log(`status of response is ${response.status}`);
-      this.posts = response.data.Data;
-      console.log(this.posts);
+      this.sideNav = response.data.sideNav;
+      this.squareimages = response.data.squareimages;
+      this.tallimages = response.data.tallimages;
+      this.wideimages = response.data.wideimages;
+      this.news = response.data.news;
+      this.squarecaptions = response.data.squarecaptions;
+      console.log(response);
     } catch (e) {
       console.log(e);
     }
+  }
+
+  scroll(event: any) {
+    this.$refs.scroll.scrollTo(0, 0);
+
+    // console.log("clicked");
   }
 }
 </script>
@@ -133,6 +136,23 @@ export default class imageSection extends Vue {
   color: #fff;
   font-family: "Nunito Semibold";
   text-align: center;
+  scroll-behavior: smooth;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+#mainNavTop {
+  width: 28px;
+  height: 28px;
+  display: block;
+  position: absolute;
+  bottom: 0px;
+  left: 30px;
+  background: #fff;
+  border-top-right-radius: 4px;
+  border-top-left-radius: 4px;
+  padding: 8px;
 }
 .caption {
   color: #fff;
@@ -151,7 +171,6 @@ export default class imageSection extends Vue {
   bottom: 0;
   width: 100%;
   padding: 12px 20px 12px;
-  /* background-color: rgba(0, 0, 0, 0.66); */
   border-radius: 0px;
   text-align: center;
 }
@@ -161,8 +180,8 @@ p.overlaptext {
 }
 .overlaptext-caption-linktext {
   font-size: 12px;
-  margin-bottom: 9px;
-  margin-top: 6px;
+  margin: 0;
+  padding: 0px;
   text-transform: uppercase;
   line-height: 1;
 }
@@ -181,17 +200,22 @@ p.overlaptext {
   height: 100%;
   overflow-y: scroll;
 }
-#content {
+.content {
   grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: minmax(270px, auto);
-  grid-gap: 2px;
+  grid-auto-rows: minmax(20px, auto);
+  grid-gap: 5px;
   display: grid;
   max-width: 100%;
   margin-top: 0px;
-  padding: 0 0 0 8px;
+  padding: 0 0 0 20px;
+}
+@media only screen and (max-width: 650px) {
+  .content {
+    padding: 0 5px 0 10px;
+  }
 }
 
-#content div {
+.content .box {
   border-radius: 5px 5px;
   overflow: hidden;
   margin-top: 10px;
@@ -199,17 +223,37 @@ p.overlaptext {
 }
 
 .square {
-  overflow: hidden;
   position: relative;
+}
+@media only screen and (max-width: 650px) {
+  .square {
+    grid-column: 1/4;
+  }
 }
 .tall {
   grid-column: 1/1;
   grid-row: 2/4;
 }
+
+@media only screen and (max-width: 650px) {
+  .tall {
+    grid-column: 1/4;
+    /* grid-row: 1/4; */
+  }
+}
 .wide {
   grid-column: 2/4;
+  grid-auto-rows: 2/4;
   position: relative;
 }
+
+@media only screen and (max-width: 650px) {
+  .wide {
+    grid-column: 1/4;
+    /* grid-row: 1/4; */
+  }
+}
+
 img.image1 {
   width: 100%;
   transform: scale(1.04);

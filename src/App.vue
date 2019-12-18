@@ -2,15 +2,18 @@
   <div id="app">
     <nav-bar />
     <main-section />
+    <!-- <back-to-top bottom="500px" right="50px">
+      <button type="button" class="btn btn-info btn-to-top">
+        <i class="fa fa-chevron-up"></i>
+      </button>
+    </back-to-top>-->
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
 import navBar from "./components/navBar.vue";
-
 import mainSection from "./components/mainSection.vue";
-
 export default Vue.extend({
   name: "App",
   components: {
@@ -24,7 +27,6 @@ export default Vue.extend({
 html {
   scroll-behavior: smooth;
 }
-
 body {
   overflow-y: auto;
   font-family: "proxima-nova-condensed", "Source Sans Pro", Helvetica, Arial,
@@ -35,7 +37,6 @@ body {
   text-decoration-skip: ink;
   margin: 0;
 }
-
 ::-webkit-scrollbar {
   width: 10px;
   margin: 0;
