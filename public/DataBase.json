@@ -2,24 +2,19 @@
     "sideNav": [
         {
             "title": "Nintendo Switch Family",
-            "newsimage": "img/news1.jpg",
-            "iconsvg": "nintendoSwitch.svg",
-            "caption1": "Enter now to win Nintendo Switch prizes!"
+            "iconsvg": "nintendoSwitch.svg"
         },
         {
             "title": "Games",
-            "iconsvg": "games.svg",
-            "caption2": "Begin your journey in Galar!"
+            "iconsvg": "games.svg"
         },
         {
             "title": "Nintendo eShop",
-            "iconsvg": "eshop.svg",
-            "caption3": "Check into the Last Resort!"
+            "iconsvg": "eshop.svg"
         },
         {
             "title": "Nintendo 3DS Family",
-            "iconsvg": "3Dfamily.svg",
-            "caption4": "Kick off your fitness adventure!"
+            "iconsvg": "3Dfamily.svg"
         },
         {
             "title": "Store",
@@ -78,40 +73,78 @@
             "bottomline": "Put your platforming skills to the test!"
         }
     ],
-    "squareimages": [
+    "thumbnails": [
         {
-            "thumbnails": "img/thumbnail1.jpg",
-            "caption": "Enter now to win Nintendo Switch prizes!"
+            "x": 0,
+            "y": 0,
+            "w": 1,
+            "h": 25,
+            "i": "img/thumbnail5.jpg",
+            "caption": "Get started!"
         },
         {
-            "thumbnails": "img/thumbnail3.jpg"
+            "x": 4,
+            "y": 25,
+            "w": 1,
+            "h": 25,
+            "i": "img/thumbnail1.jpg",
+            "caption": ""
         },
         {
-            "thumbnails": "img/thumbnail4.jpg"
+            "x": 1,
+            "y": 25,
+            "w": 1,
+            "h": 25,
+            "i": "img/thumbnail8.jpg",
+            "caption": "Lets play !!"
         },
         {
-            "thumbnails": "img/thumbnail5.jpg",
-            "caption": "Begin your journey in Galar!"
+            "x": 1,
+            "y": 0,
+            "w": 2,
+            "h": 25,
+            "i": "img/thumbnail7.jpg",
+            "caption": ""
         },
         {
-            "thumbnails": "img/thumbnail6.jpg",
-            "caption": "Check into the Last Resort!"
-        }
-    ],
-    "tallimages": [
+            "x": 2,
+            "y": 25,
+            "w": 1,
+            "h": 50,
+            "i": "img/thumbnail2.jpg",
+            "caption": ""
+        },
         {
-            "tallthumbnail": "img/thumbnail2.jpg"
-        }
-    ],
-    "wideimages": [
+            "x": 5,
+            "y": 50,
+            "w": 2,
+            "h": 25,
+            "i": "img/thumbnail7.jpg",
+            "caption": "wanna try??"
+        },
         {
-            "widethumbnail": "img/thumbnail7.jpg",
-            "caption": "Kick off your fitness adventure!"
-        }
-    ],
-    "squarecaptions": [
+            "x": 0,
+            "y": 75,
+            "w": 1,
+            "h": 25,
+            "i": "img/thumbnail5.jpg",
+            "caption": ""
+        },
         {
-            "title": "Enter now to win Nintendo Switch prizes!"
+            "x": 1,
+            "y": 75,
+            "w": 1,
+            "h": 25,
+            "i": "img/thumbnail1.jpg",
+            "caption": ""
+        },
+        {
+            "x": 2,
+            "y": 75,
+            "w": 1,
+            "h": 25,
+            "i": "img/thumbnail8.jpg",
+            "caption": ""
         }
     ]
 }

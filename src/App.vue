@@ -2,11 +2,6 @@
   <div id="app">
     <nav-bar />
     <main-section />
-    <!-- <back-to-top bottom="500px" right="50px">
-      <button type="button" class="btn btn-info btn-to-top">
-        <i class="fa fa-chevron-up"></i>
-      </button>
-    </back-to-top>-->
   </div>
 </template>
 

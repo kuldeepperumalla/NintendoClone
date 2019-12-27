@@ -6,58 +6,40 @@
         <left-nav v-bind:sideNav="sideNav" />
       </div>
 
+      <!-- thumbnails -->
       <div ref="scroll" bp="fill 13--max">
-        <div class="content">
-          <!-- square images -->
-          <div
-            :key="squareimages.id"
-            v-for="(squareimages, index) in squareimages"
-            class="square box"
-          >
-            <img class="image1" :src="squareimages.thumbnails" alt />
-
-            <!-- captions with index-->
-            <div v-if="index === 0" class="caption">
-              <p class="overlaptext-caption-linktext" style>
-                {{squareimages.caption}}
-                <img class="svgicon" src="caption.svg" alt />
-              </p>
-            </div>
-
-            <div v-if="index === 3" class="captionNoBg">
-              <p class="overlaptext-caption-linktext" style>
-                {{squareimages.caption}}
-                <img class="svgicon" src="caption.svg" alt />
-              </p>
-            </div>
-
-            <div v-if="index === 4" class="captionNoBg">
-              <p class="overlaptext-caption-linktext" style>
-                {{squareimages.caption}}
-                <img class="svgicon" src="caption.svg" alt />
-              </p>
-            </div>
+        <div>
+          <!-- vue-grid-layout -->
+          <div>
+            <grid-layout
+              class="content"
+              :layout.sync="layout"
+              :col-num="3"
+              :row-height="8"
+              :is-draggable="false"
+              :is-resizable="false"
+              :is-mirrored="false"
+              :vertical-compact="true"
+              :margin="[10, 10]"
+              :use-css-transforms="false"
+            >
+              <grid-item
+                class="grid box"
+                v-for="item in grid"
+                :x="item.x"
+                :y="item.y"
+                :w="item.w"
+                :h="item.h"
+                :i="item.i"
+                :key="item.i"
+              >
+                <img :src="item.i" alt class="images" />
+                <div class="caption">
+                  <p>{{item.caption}}</p>
+                </div>
+              </grid-item>
+            </grid-layout>
           </div>
-
-          <!-- tall images -->
-          <div :key="tallimages.id" v-for="tallimages in tallimages" class="tall box">
-            <img class="image1" :src="tallimages.tallthumbnail" alt />
-          </div>
-
-          <!-- wide image -->
-          <div :key="wide.id" v-for="(wide, index) in wideimages" class="wide box">
-            <img class="image1" :src="wide.widethumbnail" alt />
-
-            <!-- captions with index -->
-            <div class="caption">
-              <p v-if="index === 0" class="overlaptext-caption-linktext" style>
-                {{wide.caption}}
-                <img class="svgiconWide" src="caption.svg" alt />
-              </p>
-            </div>
-          </div>
-
-          <!-- top button -->
           <a href title="Go to Top">
             <div @click="scroll" id="mainNavTop">
               <img src="top.svg" alt="top" />
@@ -79,28 +61,32 @@ import { Component, Vue } from "vue-property-decorator";
 import LeftNav from "./LeftNav.vue";
 import NewsCards from "./NewsCards.vue";
 import axios, { AxiosResponse } from "axios";
+import VueGridLayout from "vue-grid-layout";
 
 interface Itypes {
-  id: number;
-  image: URL;
   title: string;
   posts: string;
   texheader: string;
-  caption1: string;
+  caption: string;
+  x: number;
+  y: number;
+  w: number;
+  h: number;
+  i: string;
 }
 @Component({
   components: {
     LeftNav,
-    NewsCards
+    NewsCards,
+    GridLayout: VueGridLayout.GridLayout,
+    GridItem: VueGridLayout.GridItem
   }
 })
 export default class MainSection extends Vue {
   sideNav: Object | Itypes = Object;
-  squareimages: Object = Object;
-  tallimages: Object = Object;
-  wideimages: Object = Object;
-  news: Object = Object;
-  squarecaptions: Object = Object;
+  news: Object | Itypes = Object;
+  squarecaptions: Object | Itypes = Object;
+  grid: Array<String> | Itypes = Array();
 
   $refs!: {
     scroll: HTMLFormElement;
@@ -111,27 +97,36 @@ export default class MainSection extends Vue {
       const response: AxiosResponse = await axios.get("/DataBase.json");
       console.log(`status of response is ${response.status}`);
       this.sideNav = response.data.sideNav;
-      this.squareimages = response.data.squareimages;
-      this.tallimages = response.data.tallimages;
-      this.wideimages = response.data.wideimages;
       this.news = response.data.news;
       this.squarecaptions = response.data.squarecaptions;
+      this.grid = response.data.thumbnails;
       console.log(response);
     } catch (e) {
       console.log(e);
     }
   }
+  layout = [
+    { x: 0, y: 0, w: 1, h: 47, i: "img/thumbnail2.jpg" },
+    { x: 2, y: 10, w: 1, h: 23, i: "img/thumbnail1.jpg" },
+    { x: 1, y: 0, w: 1, h: 23, i: "img/thumbnail4.jpg" },
+    { x: 1, y: 0, w: 1, h: 23, i: "img/thumbnail8.jpg" },
+    { x: 2, y: 0, w: 1, h: 23, i: "img/thumbnail6.jpg" },
+    { x: 1, y: 0, w: 2, h: 24, i: "img/thumbnail7.jpg" }
+  ];
 
   scroll(event: any) {
     this.$refs.scroll.scrollTo(0, 0);
-
-    // console.log("clicked");
   }
 }
 </script>
 
 
 <style scoped>
+.images {
+  height: 100%;
+  width: auto;
+  transform: scale(1.1);
+}
 * {
   color: #fff;
   font-family: "Nunito Semibold";
@@ -157,12 +152,16 @@ html {
 .caption {
   color: #fff;
   position: absolute;
-  bottom: 0;
+  bottom: -16px;
   width: 100%;
-  padding: 12px 20px 12px;
+  padding: 17px 20px 12px -45px;
   background-color: rgba(0, 0, 0, 0.66);
   border-radius: 0px;
   text-align: left;
+  margin: 15px 0px 0px 0px;
+}
+p {
+  margin: 2px 0px 16px 0px;
 }
 
 .captionNoBg {
@@ -202,7 +201,20 @@ p.overlaptext {
 }
 .content {
   grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: minmax(20px, auto);
+  grid-auto-rows: minmax(200px, auto-fit);
+  grid-auto-flow: row;
+  grid-gap: 5px;
+  display: grid;
+  max-width: 100%;
+  margin-top: 0px;
+  padding: 0 0 0 20px;
+  margin-left: 25px;
+}
+
+.grid {
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(200px, auto-fit);
+  grid-auto-flow: row;
   grid-gap: 5px;
   display: grid;
   max-width: 100%;
@@ -224,6 +236,7 @@ p.overlaptext {
 
 .square {
   position: relative;
+  grid-auto-flow: dense;
 }
 @media only screen and (max-width: 650px) {
   .square {
@@ -231,8 +244,9 @@ p.overlaptext {
   }
 }
 .tall {
-  grid-column: 1/1;
-  grid-row: 2/4;
+  /* grid-column: 1/2;
+  grid-row: 2/4; */
+  grid-column: span;
 }
 
 @media only screen and (max-width: 650px) {
@@ -264,5 +278,13 @@ img.image1 {
 .box:hover {
   transform: translateY(-5px);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* sffsdgdf */
+.vue-grid-item.render-rtl {
+  margin: 0 !important;
+  top: 0 !important;
+  width: 0 !important;
+  position: none !important;
 }
 </style>

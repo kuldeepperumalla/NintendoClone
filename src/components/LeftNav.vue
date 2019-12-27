@@ -7,9 +7,6 @@
             <li :key="id" v-for="(sideNav, id) in sideNav">
               <div class="row subMenuContainer" v-on:click="handleClick">
                 <span class="mainN">
-                  <!-- <div class="rowCorner">
-                    <img src="rowCurve.svg" alt />
-                  </div>-->
                   <div class="icon">
                     <img v-bind:src="sideNav.iconsvg" />
                   </div>
@@ -23,16 +20,20 @@
     </div>
   </div>
 </template>
+
 <script lang="ts">
 import { Component, Vue, Prop } from "vue-property-decorator";
+
 @Component
 export default class LeftNav extends Vue {
   @Prop({ required: true }) sideNav!: object;
+
   handleClick() {
     alert(JSON.stringify(this.sideNav));
   }
 }
 </script>
+
 <style scoped>
 #mainNavTop {
   width: 28px;
