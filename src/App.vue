@@ -7,13 +7,13 @@
 
 <script lang="ts">
 import Vue from "vue";
-import navBar from "./components/navBar.vue";
-import mainSection from "./components/mainSection.vue";
+import NavBar from "./components/NavBar.vue";
+import MainSection from "./components/MainSection.vue";
 export default Vue.extend({
   name: "App",
   components: {
-    navBar,
-    mainSection
+    NavBar,
+    MainSection
   }
 });
 </script>

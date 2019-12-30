@@ -61,13 +61,16 @@ import { Component, Vue } from "vue-property-decorator";
 import LeftNav from "./LeftNav.vue";
 import NewsCards from "./NewsCards.vue";
 import axios, { AxiosResponse } from "axios";
-import VueGridLayout from "vue-grid-layout";
+import { GridLayout, GridItem, GridItemData } from "vue-grid-layout";
 
 interface Itypes {
   title: string;
   posts: string;
   texheader: string;
   caption: string;
+}
+
+interface Layout {
   x: number;
   y: number;
   w: number;
@@ -78,8 +81,8 @@ interface Itypes {
   components: {
     LeftNav,
     NewsCards,
-    GridLayout: VueGridLayout.GridLayout,
-    GridItem: VueGridLayout.GridItem
+    GridLayout,
+    GridItem
   }
 })
 export default class MainSection extends Vue {
@@ -87,7 +90,7 @@ export default class MainSection extends Vue {
   news: Object | Itypes = Object;
   squarecaptions: Object | Itypes = Object;
   grid: Array<String> | Itypes = Array();
-
+  layout: Layout[] = [];
   $refs!: {
     scroll: HTMLFormElement;
   };
@@ -105,14 +108,6 @@ export default class MainSection extends Vue {
       console.log(e);
     }
   }
-  layout = [
-    { x: 0, y: 0, w: 1, h: 47, i: "img/thumbnail2.jpg" },
-    { x: 2, y: 10, w: 1, h: 23, i: "img/thumbnail1.jpg" },
-    { x: 1, y: 0, w: 1, h: 23, i: "img/thumbnail4.jpg" },
-    { x: 1, y: 0, w: 1, h: 23, i: "img/thumbnail8.jpg" },
-    { x: 2, y: 0, w: 1, h: 23, i: "img/thumbnail6.jpg" },
-    { x: 1, y: 0, w: 2, h: 24, i: "img/thumbnail7.jpg" }
-  ];
 
   scroll(event: any) {
     this.$refs.scroll.scrollTo(0, 0);
@@ -125,7 +120,7 @@ export default class MainSection extends Vue {
 .images {
   height: 100%;
   width: auto;
-  transform: scale(1.1);
+  transform: scale(1.02) translate(-15px, 0px);
 }
 * {
   color: #fff;
@@ -199,17 +194,6 @@ p.overlaptext {
   height: 100%;
   overflow-y: scroll;
 }
-.content {
-  grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: minmax(200px, auto-fit);
-  grid-auto-flow: row;
-  grid-gap: 5px;
-  display: grid;
-  max-width: 100%;
-  margin-top: 0px;
-  padding: 0 0 0 20px;
-  margin-left: 25px;
-}
 
 .grid {
   grid-template-columns: repeat(3, 1fr);
@@ -280,11 +264,8 @@ img.image1 {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-/* sffsdgdf */
-.vue-grid-item.render-rtl {
-  margin: 0 !important;
-  top: 0 !important;
-  width: 0 !important;
-  position: none !important;
+.vue-grid-layout.content {
+  width: 102%;
+  top: -10px;
 }
 </style>
