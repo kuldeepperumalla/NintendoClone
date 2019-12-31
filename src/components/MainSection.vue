@@ -40,11 +40,6 @@
               </grid-item>
             </grid-layout>
           </div>
-          <a href title="Go to Top">
-            <div @click="scroll" id="mainNavTop">
-              <img src="top.svg" alt="top" />
-            </div>
-          </a>
         </div>
       </div>
 
@@ -105,12 +100,8 @@ export default class MainSection extends Vue {
       this.grid = response.data.thumbnails;
       console.log(response);
     } catch (e) {
-      console.log(e);
+      // console.log(e);
     }
-  }
-
-  scroll(event: any) {
-    this.$refs.scroll.scrollTo(0, 0);
   }
 }
 </script>
